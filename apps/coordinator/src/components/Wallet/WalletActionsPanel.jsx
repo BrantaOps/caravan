@@ -79,6 +79,10 @@ const WalletActionsPanel = ({
     if (sessionStorage) sessionStorage.removeItem(CARAVAN_CONFIG);
     onClearConfig(e);
   };
+  const handleLinkBranta = (e) => {
+    e.preventDefault();
+    window.open("branta://")
+  };
   return (
     <Card className={classes.card}>
       <CardHeader title="Wallet Actions" />
@@ -115,6 +119,13 @@ const WalletActionsPanel = ({
                 onClick={handleClearClick}
               >
                 Clear Wallet
+              </ButtonWithTooltip>
+              <ButtonWithTooltip
+                tooltipText="Exports wallet to Branta."
+                disabled={!walletActivated}
+                onClick={handleLinkBranta}
+              >
+                Link Branta
               </ButtonWithTooltip>
             </ButtonGroup>
           </Grid>
